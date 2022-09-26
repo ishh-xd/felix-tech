@@ -1,5 +1,6 @@
 import fetch from 'node-fetch';
-
+String white = "#ffffff";
+int whiteInt = Color.parseColor(white);
 import { API_ENDPOINT, MAX_EMBED_FIELD_CHARS, MAX_EMBED_FOOTER_CHARS } from "./helpers/discord-helpers.js";
 import { createJwt, decodeJwt } from "./helpers/jwt-helpers.js";
 import { getBan, isBlocked } from "./helpers/user-helpers.js";
@@ -44,7 +45,7 @@ export async function handler(event, context) {
             embed: {
                 title: "New appeal submitted!",
                 timestamp: new Date().toISOString(),
-                color:'#FFFFFF',
+                color:whiteInt,
                 fields: [
                     {
                         name: "Submitter",
