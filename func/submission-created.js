@@ -44,6 +44,7 @@ export async function handler(event, context) {
             embed: {
                 title: "New appeal submitted!",
                 timestamp: new Date().toISOString(),
+                color:'#FFFFFF',
                 fields: [
                     {
                         name: "Submitter",
@@ -70,7 +71,7 @@ export async function handler(event, context) {
                 const ban = await getBan(userInfo.id, process.env.GUILD_ID, process.env.DISCORD_BOT_TOKEN);
                 if (ban !== null && ban.reason) {
                     message.embed.footer = {
-                        text: `Original ban reason: ${ban.reason}`.slice(0, MAX_EMBED_FOOTER_CHARS)
+                        text: `Original Ban Reason: ${ban.reason}`.slice(0, MAX_EMBED_FOOTER_CHARS)
                     };
                 }
             } catch (e) {
@@ -88,7 +89,7 @@ export async function handler(event, context) {
                     components: [{
                         type: 2,
                         style: 5,
-                        label: "Approve appeal and unban user",
+                        label: "Approve Appeal",
                         url: `${unbanUrl.toString()}?token=${encodeURIComponent(createJwt(unbanInfo))}`
                     }]
                 }];
